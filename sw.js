@@ -1,5 +1,5 @@
 // ĐỔI TÊN CACHE Ở ĐÂY MỖI KHI CẬP NHẬT CODE MỚI LÊN VERCEL
-const CACHE_NAME = 'wedding-invitation-v2'; 
+const CACHE_NAME = 'wedding-invitation-v3'; 
 
 const ASSETS = [
   '/',
