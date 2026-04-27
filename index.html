@@ -340,7 +340,7 @@
           <div class="cloud-divider fade-in">☁</div>
 
           <div style="margin: 20px 0; text-align: center;">
-            <img src="elements/image.png" alt="Rings"
+            <img src="elements/ring.svg" alt="Rings"
               style="width: 60px; height: auto; animation: floatY 4s ease-in-out infinite;" />
           </div>
 
@@ -587,8 +587,21 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('Service Worker registered', reg))
+          .then(reg => {
+            console.log('Service Worker registered');
+            // Check for updates on every load
+            reg.update();
+          })
           .catch(err => console.log('Service Worker registration failed', err));
+      });
+
+      // Reload page when new service worker takes over
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {
+          window.location.reload();
+          refreshing = true;
+        }
       });
     }
   </script>

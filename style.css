@@ -2674,7 +2674,7 @@
    max-width: 450px;
    min-height: 450px;
    background: #fff;
-   background-image: url('elements/background_ceremony_info.svg'), url('elements/background_ceremony_info2.svg');
+   background-image: url('elements/background_ceremony_info.svg');
    background-size: cover, cover;
    background-position: center, center;
    border-radius: 12px;
