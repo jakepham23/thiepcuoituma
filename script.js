@@ -1,54 +1,54 @@
     // ============ ANTI-DEVTOOLS ============
-    // (function () {
-    //   var threshold = 160;
-    //   var devtoolsOpen = false;
+    (function () {
+      var threshold = 160;
+      var devtoolsOpen = false;
 
-    //   function checkDevTools() {
-    //     // Bỏ qua trên điện thoại vì thanh gõ URL ẩn/hiện làm thay đổi kích thước liên tục
-    //     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    //       return;
-    //     }``
+      function checkDevTools() {
+        // Bỏ qua trên điện thoại vì thanh gõ URL ẩn/hiện làm thay đổi kích thước liên tục
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+          return;
+        }``
         
-    //     var widthDiff = window.outerWidth - window.innerWidth;
-    //     var heightDiff = window.outerHeight - window.innerHeight;
-    //     var isOpen = widthDiff > threshold || heightDiff > threshold;
-    //     if (isOpen && !devtoolsOpen) {
-    //       devtoolsOpen = true;
-    //       location.reload();
-    //     } else if (!isOpen) {
-    //       devtoolsOpen = false;
-    //     }
-    //   }
+        var widthDiff = window.outerWidth - window.innerWidth;
+        var heightDiff = window.outerHeight - window.innerHeight;
+        var isOpen = widthDiff > threshold || heightDiff > threshold;
+        if (isOpen && !devtoolsOpen) {
+          devtoolsOpen = true;
+          location.reload();
+        } else if (!isOpen) {
+          devtoolsOpen = false;
+        }
+      }
 
-    //   setInterval(checkDevTools, 500);
+      setInterval(checkDevTools, 500);
 
-    //   // Bắt phím F12
-    //   window.addEventListener('keydown', function (e) {
-    //     if (e.key === 'F12' || e.keyCode === 123) {
-    //       e.preventDefault();
-    //       location.reload();
-    //     }
-    //     // Ctrl+Shift+I / Cmd+Option+I
-    //     if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-    //       e.preventDefault();
-    //       location.reload();
-    //     }
-    //     // Ctrl+Shift+J / Cmd+Option+J
-    //     if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
-    //       e.preventDefault();
-    //       location.reload();
-    //     }
-    //     // Ctrl+U (view source)
-    //     if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
-    //       e.preventDefault();
-    //     }
-    //   });
+      // Bắt phím F12
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+          e.preventDefault();
+          location.reload();
+        }
+        // Ctrl+Shift+I / Cmd+Option+I
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+          e.preventDefault();
+          location.reload();
+        }
+        // Ctrl+Shift+J / Cmd+Option+J
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+          e.preventDefault();
+          location.reload();
+        }
+        // Ctrl+U (view source)
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
 
-    //   // Vô hiệu hoá chuột phải
-    //   window.addEventListener('contextmenu', function (e) {
-    //     e.preventDefault();
-    //   });
-    // })();
+      // Vô hiệu hoá chuột phải
+      window.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+      });
+    })();
 
     // Audio Player variable managed directly from audio element
     // Global state
