@@ -2200,7 +2200,7 @@
    position: fixed;
    inset: 0;
    background: rgba(0, 0, 0, 0.7);
-   z-index: 1000;
+   z-index: 6000;
    align-items: center;
    justify-content: center;
  }
@@ -2905,7 +2905,8 @@
    .modern-flower {
      width: 140px;
    }
-    .wi-name-cursive {
-    font-size: 40px;
-  }
+
+   .wi-name-cursive {
+     font-size: 40px;
+   }
  }

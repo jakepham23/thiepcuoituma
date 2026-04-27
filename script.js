@@ -195,6 +195,12 @@
     });
 
     // Submit wish to server
+    function showSuccessModal(title, message) {
+      document.getElementById('success-title').innerText = title;
+      document.getElementById('success-message').innerText = message;
+      document.getElementById('success-modal').classList.add('open');
+    }
+
     async function submitWish() {
       const name = document.getElementById('wish-name').value.trim();
       const msg = document.getElementById('wish-msg').value.trim();
@@ -222,7 +228,8 @@
         addWishToUI(wish.name, wish.time, wish.msg);
         document.getElementById('wish-name').value = '';
         document.getElementById('wish-msg').value = '';
-        alert('Cảm ơn bạn đã gửi lời chúc! Lời chúc đã được lưu vào Google Sheets.');
+        
+        showSuccessModal('Cảm ơn bạn!', 'Lời chúc của bạn đã được gửi thành công đến cô dâu và chú rể.');
       } catch (err) {
         console.error('Lỗi khi gửi tới Google Sheets:', err);
         // Fallback lưu LocalStorage
@@ -233,7 +240,8 @@
         addWishToUI(wish.name, wish.time, wish.msg);
         document.getElementById('wish-name').value = '';
         document.getElementById('wish-msg').value = '';
-        alert('Lời chúc đã được lưu tạm trên máy của bạn (vì lỗi kết nối).');
+        
+        showSuccessModal('Đã ghi nhận!', 'Lời chúc đã được lưu tạm trên máy của bạn (do lỗi kết nối mạng).');
       } finally {
         btn.innerText = originalText;
         btn.disabled = false;
@@ -387,13 +395,15 @@
       const name = document.getElementById('rsvp-name').value.trim();
       const attend = document.getElementById('rsvp-attend').value;
       if (!name) { alert('Vui lòng nhập tên của bạn!'); return; }
+      
       const msg = attend === 'yes'
         ? `Cảm ơn ${name}! Chúng tôi rất mong được gặp bạn! 🎉`
         : attend === 'no'
           ? `Cảm ơn ${name} đã phản hồi. Rất tiếc khi không có mặt bạn.`
           : `Cảm ơn ${name}! Chúng tôi sẽ chờ tin bạn nhé!`;
-      alert(msg);
+      
       document.getElementById('rsvp-modal').classList.remove('open');
+      showSuccessModal('Xác nhận thành công', msg);
     }
 
     // Init AOS

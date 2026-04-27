@@ -585,6 +585,19 @@
     </div>
   </div>
 
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="success-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal success-modal" style="text-align: center; padding: 40px 30px;">
+      <div class="success-icon" style="font-size: 3rem; margin-bottom: 20px;">💌</div>
+      <h2 id="success-title"
+        style="font-family: 'Playfair Display', serif; color: var(--burgundy); margin-bottom: 15px;">Cảm ơn bạn!</h2>
+      <p id="success-message" style="font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 25px;">Lời chúc
+        của bạn đã được gửi thành công.</p>
+      <button class="form-submit" onclick="document.getElementById('success-modal').classList.remove('open')"
+        style="width: 100%;">ĐÓNG</button>
+    </div>
+  </div>
+
   <!-- LIGHTBOX MODAL -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
