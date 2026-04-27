@@ -52,7 +52,8 @@
 
       <div class="modern-than-moi">Thân Mời</div>
       <div class="modern-pill">Quý Khách</div>
-<p class="modern-subtext" style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:normal;">đến dự buổi tiệc chung vui cùng gia đình</p>
+      <p class="modern-subtext" style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:normal;">đến dự
+        buổi tiệc chung vui cùng gia đình</p>
 
       <button class="modern-btn-open" onclick="openInvitation()">Mở thiệp</button>
 
@@ -169,9 +170,12 @@
       </div>
 
       <!-- Invite header -->
-<div class="wi-invite-top fade-in" style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:normal;">Trân trọng kính mời</div>
+      <div class="wi-invite-top fade-in"
+        style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:normal;">Trân trọng kính mời</div>
       <div class="wi-guest fade-in">Quý khách</div>
-<div class="wi-subtitle fade-in" style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:normal;">Tới dự tiệc chung vui cùng gia đình</div>
+      <div class="wi-subtitle fade-in"
+        style="font-family:'Cormorant Garamond',serif;font-weight:400;font-style:normal;">Tới dự tiệc chung vui cùng gia
+        đình</div>
 
       <!-- Big cursive names -->
       <div class="wi-names-block fade-in"
@@ -585,7 +589,10 @@
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <button class="lb-nav lb-prev" onclick="prevImage(event)">&#10094;</button>
-    <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+    <div class="lightbox-wrapper" onclick="event.stopPropagation()">
+      <img class="lightbox-content" id="lightbox-img">
+      <div class="swipe-hint">Vuốt để xem thêm ảnh</div>
+    </div>
     <button class="lb-nav lb-next" onclick="nextImage(event)">&#10095;</button>
   </div>
 

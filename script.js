@@ -488,6 +488,30 @@
       }
     });
 
+    // Swipe detection for Lightbox
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    function handleLightboxSwipe() {
+      const threshold = 50;
+      if (touchendX < touchstartX - threshold) nextImage();
+      if (touchendX > touchstartX + threshold) prevImage();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const lbContainer = document.getElementById('lightbox');
+      if (lbContainer) {
+        lbContainer.addEventListener('touchstart', e => {
+          touchstartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lbContainer.addEventListener('touchend', e => {
+          touchendX = e.changedTouches[0].screenX;
+          handleLightboxSwipe();
+        }, { passive: true });
+      }
+    });
+
     // Auto-init
     document.addEventListener('DOMContentLoaded', () => {
       // Small delay to ensure everything is ready
