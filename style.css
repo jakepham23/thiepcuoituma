@@ -2510,8 +2510,9 @@
  }
 
  .wi-name-cursive {
-   font-family: 'Great Vibes', cursive;
-   font-size: 76px;
+   font-family: 'Playfair Display', cursive;
+   font-style: italic;
+   font-size: 68px;
    color: #0b6b75;
    /* Teal color */
    display: block;
@@ -2675,7 +2676,7 @@
 
  @media (max-width: 400px) {
    .wi-name-cursive {
-     font-size: 64px;
+     font-size: 40px;
    }
 
    .wi-photos {
@@ -2904,4 +2905,7 @@
    .modern-flower {
      width: 140px;
    }
+    .wi-name-cursive {
+    font-size: 40px;
+  }
  }

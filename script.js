@@ -1,54 +1,54 @@
     // ============ ANTI-DEVTOOLS ============
-    (function () {
-      var threshold = 160;
-      var devtoolsOpen = false;
+    // (function () {
+    //   var threshold = 160;
+    //   var devtoolsOpen = false;
 
-      function checkDevTools() {
-        // Bỏ qua trên điện thoại vì thanh gõ URL ẩn/hiện làm thay đổi kích thước liên tục
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-          return;
-        }``
+    //   function checkDevTools() {
+    //     // Bỏ qua trên điện thoại vì thanh gõ URL ẩn/hiện làm thay đổi kích thước liên tục
+    //     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    //       return;
+    //     }``
         
-        var widthDiff = window.outerWidth - window.innerWidth;
-        var heightDiff = window.outerHeight - window.innerHeight;
-        var isOpen = widthDiff > threshold || heightDiff > threshold;
-        if (isOpen && !devtoolsOpen) {
-          devtoolsOpen = true;
-          location.reload();
-        } else if (!isOpen) {
-          devtoolsOpen = false;
-        }
-      }
+    //     var widthDiff = window.outerWidth - window.innerWidth;
+    //     var heightDiff = window.outerHeight - window.innerHeight;
+    //     var isOpen = widthDiff > threshold || heightDiff > threshold;
+    //     if (isOpen && !devtoolsOpen) {
+    //       devtoolsOpen = true;
+    //       location.reload();
+    //     } else if (!isOpen) {
+    //       devtoolsOpen = false;
+    //     }
+    //   }
 
-      setInterval(checkDevTools, 500);
+    //   setInterval(checkDevTools, 500);
 
-      // Bắt phím F12
-      window.addEventListener('keydown', function (e) {
-        if (e.key === 'F12' || e.keyCode === 123) {
-          e.preventDefault();
-          location.reload();
-        }
-        // Ctrl+Shift+I / Cmd+Option+I
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
-          e.preventDefault();
-          location.reload();
-        }
-        // Ctrl+Shift+J / Cmd+Option+J
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
-          e.preventDefault();
-          location.reload();
-        }
-        // Ctrl+U (view source)
-        if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
-          e.preventDefault();
-        }
-      });
+    //   // Bắt phím F12
+    //   window.addEventListener('keydown', function (e) {
+    //     if (e.key === 'F12' || e.keyCode === 123) {
+    //       e.preventDefault();
+    //       location.reload();
+    //     }
+    //     // Ctrl+Shift+I / Cmd+Option+I
+    //     if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+    //       e.preventDefault();
+    //       location.reload();
+    //     }
+    //     // Ctrl+Shift+J / Cmd+Option+J
+    //     if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+    //       e.preventDefault();
+    //       location.reload();
+    //     }
+    //     // Ctrl+U (view source)
+    //     if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
+    //       e.preventDefault();
+    //     }
+    //   });
 
-      // Vô hiệu hoá chuột phải
-      window.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-      });
-    })();
+    //   // Vô hiệu hoá chuột phải
+    //   window.addEventListener('contextmenu', function (e) {
+    //     e.preventDefault();
+    //   });
+    // })();
 
     // Audio Player variable managed directly from audio element
     // Global state
@@ -209,23 +209,23 @@
       const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} · ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
       const wish = { name, msg, time: timeStr };
 
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxl5Ur5SJEPu8kwbjLblRyNZSYB04JlB-z28P477oi05Jyd-1o0AR1_AFBG6sGWL4Og/exec';
+
       try {
-        const resp = await fetch('save_wish.php', {
+        // Gửi lên Google Sheets qua Apps Script
+        await fetch(SCRIPT_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(wish)
         });
 
-        if (!resp.ok) throw new Error('Cannot save to server');
-
-        // Render immediately
+        // Render ngay lập tức lên giao diện
         addWishToUI(wish.name, wish.time, wish.msg);
         document.getElementById('wish-name').value = '';
         document.getElementById('wish-msg').value = '';
-        alert('Cảm ơn bạn đã gửi lời chúc!');
+        alert('Cảm ơn bạn đã gửi lời chúc! Lời chúc đã được lưu vào Google Sheets.');
       } catch (err) {
-        console.warn('Lỗi lưu server, chuyển sang lưu LocalStorage tạm thời:', err);
-        // Fallback to localStorage
+        console.error('Lỗi khi gửi tới Google Sheets:', err);
+        // Fallback lưu LocalStorage
         const stored = JSON.parse(localStorage.getItem('wedding_wishes') || '[]');
         stored.unshift(wish);
         localStorage.setItem('wedding_wishes', JSON.stringify(stored));
@@ -233,7 +233,7 @@
         addWishToUI(wish.name, wish.time, wish.msg);
         document.getElementById('wish-name').value = '';
         document.getElementById('wish-msg').value = '';
-        alert('Lời chúc đã được lưu (Chế độ xem thử Local)! Để lưu thật, cần up web lên máy chủ (Host) có hỗ trợ PHP nhé.');
+        alert('Lời chúc đã được lưu tạm trên máy của bạn (vì lỗi kết nối).');
       } finally {
         btn.innerText = originalText;
         btn.disabled = false;
@@ -241,7 +241,7 @@
     }
 
     // Helper: Add wish to DOM automatically
-    function addWishToUI(name, timeStr, msg) {
+    function addWishToUI(name, timeStr, msg, prepend = true) {
       const list = document.getElementById('wishes-list');
       const card = document.createElement('div');
       card.className = 'wish-card';
@@ -254,35 +254,40 @@
 
       const placeholder = list.querySelector('[style*="Đang tải"], [style*="Chưa có lời chúc"]');
       if (placeholder) placeholder.remove();
-      list.insertBefore(card, list.firstChild);
+      
+      if (prepend) {
+        list.insertBefore(card, list.firstChild);
+      } else {
+        list.appendChild(card);
+      }
     }
 
     // Load wishes from wishes.json merged with localStorage
     async function loadWishes() {
       const list = document.getElementById('wishes-list');
-      let jsonWishes = [];
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxl5Ur5SJEPu8kwbjLblRyNZSYB04JlB-z28P477oi05Jyd-1o0AR1_AFBG6sGWL4Og/exec';
+      
       try {
-        const resp = await fetch('wishes.json?v=' + Date.now());
-        if (resp.ok) jsonWishes = await resp.json();
-      } catch (e) { console.warn('wishes.json not found, using localStorage only'); }
-      const localWishes = JSON.parse(localStorage.getItem('wedding_wishes') || '[]');
-      const allWishes = [...localWishes, ...jsonWishes];
-      list.innerHTML = '';
-      if (allWishes.length === 0) {
-        list.innerHTML = '<div style="text-align:center;color:#ccc;font-size:0.75rem;padding:20px;">Chưa có lời chúc nào. Hãy là người đầu tiên! 💕</div>';
-        return;
+        const resp = await fetch(SCRIPT_URL);
+        if (resp.ok) {
+          const jsonWishes = await resp.json();
+          list.innerHTML = '';
+          if (jsonWishes.length === 0) {
+            list.innerHTML = '<div style="text-align:center;color:#ccc;font-size:0.75rem;padding:20px;">Chưa có lời chúc nào. Hãy là người đầu tiên! 💕</div>';
+            return;
+          }
+          jsonWishes.forEach(w => {
+            addWishToUI(w.name, w.time || '', w.msg, false); // false = append to end
+          });
+        }
+      } catch (e) { 
+        console.warn('Không thể tải lời chúc từ Google Sheets, sử dụng local backup'); 
+        const localWishes = JSON.parse(localStorage.getItem('wedding_wishes') || '[]');
+        if (localWishes.length > 0) {
+          list.innerHTML = '';
+          localWishes.forEach(w => addWishToUI(w.name, w.time || '', w.msg, false));
+        }
       }
-      allWishes.forEach(w => {
-        const card = document.createElement('div');
-        card.className = 'wish-card';
-        card.innerHTML = `
-          <div class="wish-header">
-            <span class="wish-name">${w.name}</span>
-            <span class="wish-time">${w.time || ''}</span>
-          </div>
-          <div class="wish-msg">${w.msg}</div>`;
-        list.appendChild(card);
-      });
     }
 
     // Load album from album/photos.json and build carousel
