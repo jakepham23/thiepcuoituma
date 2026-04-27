@@ -1065,10 +1065,10 @@
  }
 
  .hero-date-box .label {
-   color: var(--gold-light);
-   font-size: 0.6rem;
+   color: var(--gold);
+   font-size: 0.82rem;
    letter-spacing: 2px;
-   font-weight: 300;
+   font-weight: 600;
    text-transform: uppercase;
  }
 
@@ -1704,7 +1704,8 @@
 
  .wishes-form input::placeholder,
  .wishes-form textarea::placeholder {
-   color: rgba(178, 223, 219, 0.5);
+   color: #0b6b75;
+   opacity: 0.6;
  }
 
  .wishes-form input:focus,
@@ -1759,9 +1760,9 @@
  }
 
  .wish-card {
-   background: rgba(255, 255, 255, 0.08);
-   border-radius: 4px;
-   border: 1px solid rgba(77, 182, 172, 0.15);
+   background: rgba(11, 107, 117, 0.03);
+   border-radius: 8px;
+   border: 1px solid rgba(11, 107, 117, 0.1);
    padding: 14px 16px;
  }
 
@@ -1772,19 +1773,20 @@
  }
 
  .wish-card .wish-name {
-   color: var(--gold-light);
-   font-weight: 500;
-   font-size: 0.82rem;
+   color: var(--gold);
+   font-weight: 700;
+   font-size: 0.9rem;
  }
 
  .wish-card .wish-time {
-   color: rgba(178, 223, 219, 0.5);
-   font-size: 0.7rem;
+   color: #0b6b75;
+   opacity: 0.6;
+   font-size: 0.75rem;
  }
 
  .wish-card .wish-msg {
-   color: rgba(232, 245, 233, 0.85);
-   font-size: 0.8rem;
+   color: #0b6b75;
+   font-size: 0.85rem;
    line-height: 1.6;
  }
 
@@ -2425,10 +2427,10 @@
  }
 
  .wi-invite-top {
-   font-size: 11px;
+   font-size: 14px;
    letter-spacing: 4px;
-   color: var(--burgundy);
-   font-weight: 600;
+   color: #0b6b75;
+   font-weight: 700;
    text-transform: uppercase;
    margin-bottom: 12px;
  }
@@ -2446,10 +2448,10 @@
  }
 
  .wi-subtitle {
-   font-size: 11px;
+   font-size: 13px;
    letter-spacing: 2.5px;
-   color: var(--burgundy);
-   font-weight: 500;
+   color: #0b6b75;
+   font-weight: 600;
    text-transform: uppercase;
    margin-bottom: 35px;
  }
@@ -2604,13 +2606,13 @@
  }
 
  .wi-announce {
-   font-family: 'Lora', serif;
-   font-size: 12px;
-   letter-spacing: 1.5px;
-   color: var(--burgundy);
-   font-style: italic;
-   text-transform: uppercase;
-   opacity: 0.9;
+   font-family: 'Be Vietnam Pro', sans-serif;
+   font-size: 14px;
+   letter-spacing: 1px;
+   color: #0b6b75;
+   font-weight: 500;
+   text-transform: none;
+   opacity: 1;
  }
 
  @keyframes fadeIn {
@@ -2768,7 +2770,7 @@
  .modern-than-moi {
    font-size: 1rem;
    margin-top: 15px;
-   font-weight: 300;
+   font-weight: 600;
  }
 
  .modern-pill {
@@ -2777,15 +2779,15 @@
    padding: 8px 45px;
    border-radius: 40px;
    font-weight: 700;
-   font-size: 1.1rem;
+   font-size: 1.3rem;
    margin: 12px 0;
    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
    letter-spacing: 1px;
  }
 
  .modern-subtext {
-   font-size: 0.75rem;
-   opacity: 0.7;
+   font-size: 0.95rem;
+   opacity: 1;
    max-width: 280px;
    line-height: 1.6;
  }

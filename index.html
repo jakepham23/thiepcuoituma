@@ -428,36 +428,42 @@
     </section>
 
     <!-- COUNTDOWN -->
-    <section id="countdown-section">
-      <div class="section-title fade-in">Đếm Ngược Ngày Cưới</div>
-      <div class="countdown-grid fade-in">
-        <div class="countdown-item">
-          <span class="num" id="cd-days">00</span>
-          <span class="unit">Ngày</span>
-        </div>
-        <span class="countdown-separator">:</span>
-        <div class="countdown-item">
-          <span class="num" id="cd-hours">00</span>
-          <span class="unit">Giờ</span>
-        </div>
-        <span class="countdown-separator">:</span>
-        <div class="countdown-item">
-          <span class="num" id="cd-mins">00</span>
-          <span class="unit">Phút</span>
-        </div>
-        <span class="countdown-separator">:</span>
-        <div class="countdown-item">
-          <span class="num" id="cd-secs">00</span>
-          <span class="unit">Giây</span>
+    <section id="countdown-section" style="padding: 40px 20px;">
+      <div class="info-card-wrap fade-in"
+        style="background-color: aliceblue; background-size: cover; background-position: center; border: none; padding: 40px 20px; max-width: 500px; margin: 0 auto; color: var(--burgundy); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden;">
+        <div class="section-title fade-in" style="color: var(--burgundy); text-shadow: none; margin-bottom: 20px;">Đếm
+          Ngược
+          Ngày Cưới</div>
+        <div class="countdown-grid fade-in" style="color: var(--burgundy);">
+          <div class="countdown-item">
+            <span class="num" id="cd-days" style="color: var(--gold);">00</span>
+            <span class="unit" style="color: var(--burgundy);">Ngày</span>
+          </div>
+          <span class="countdown-separator" style="color: var(--burgundy);">:</span>
+          <div class="countdown-item">
+            <span class="num" id="cd-hours" style="color: var(--gold);">00</span>
+            <span class="unit" style="color: var(--burgundy);">Giờ</span>
+          </div>
+          <span class="countdown-separator" style="color: var(--burgundy);">:</span>
+          <div class="countdown-item">
+            <span class="num" id="cd-mins" style="color: var(--gold);">00</span>
+            <span class="unit" style="color: var(--burgundy);">Phút</span>
+          </div>
+          <span class="countdown-separator" style="color: var(--burgundy);">:</span>
+          <div class="countdown-item">
+            <span class="num" id="cd-secs" style="color: var(--gold);">00</span>
+            <span class="unit" style="color: var(--burgundy);">Giây</span>
+          </div>
         </div>
       </div>
-      <!-- <button class="rsvp-btn" onclick="document.getElementById('rsvp-modal').classList.add('open')">
+    </section>
+    <!-- <button class="rsvp-btn" onclick="document.getElementById('rsvp-modal').classList.add('open')">
         XÁC NHẬN THAM DỰ
       </button> -->
-      <!-- </section> -->
+    <!-- </section> -->
 
-      <!-- GIFT BOX -->
-      <!-- <section id="gift">
+    <!-- GIFT BOX -->
+    <!-- <section id="gift">
       <div class="gift-title fade-in">Hộp Mừng Cưới</div>
       <div class="qr-grid fade-in">
         <div class="qr-card">
@@ -516,27 +522,31 @@
       </div>
     </section> -->
 
-      <!-- WISHES -->
-      <section id="wishes">
-        <div class="section-title fade-in">Lời Chúc Mừng</div>
+    <!-- WISHES -->
+    <section id="wishes" style="padding: 10px 20px 40px;">
+      <div class="info-card-wrap fade-in"
+        style="background-color: aliceblue; background-size: cover; background-position: center; border: none; padding: 40px 20px; max-width: 500px; margin: 0 auto; color: var(--burgundy); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden;">
+        <div class="section-title fade-in" style="color: var(--burgundy); text-shadow: none; margin-bottom: 30px;">Lời
+          Chúc Mừng</div>
         <div class="wishes-form fade-in">
-          <input type="text" id="wish-name" placeholder="Tên của bạn" />
-          <textarea id="wish-msg" placeholder="Gửi lời chúc tới cô dâu chú rể..."></textarea>
+          <input type="text" id="wish-name" placeholder="Tên của bạn" style="color: var(--gold)" />
+          <textarea id="wish-msg" placeholder="Gửi lời chúc tới cô dâu chú rể..." style="color: var(--gold)"></textarea>
           <button class="wishes-submit" onclick="submitWish()">GỬI LỜI CHÚC ✦</button>
         </div>
         <!-- Wishes loaded from wishes.json + localStorage -->
         <div class="wishes-list" id="wishes-list">
-          <div style="text-align:center;color:#ccc;font-size:0.75rem;padding:20px;">Đang tải lời chúc...</div>
+          <div style="text-align:center;color:var(--gold);font-size:0.75rem;padding:20px;">Đang tải lời chúc...</div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- FOOTER -->
-      <footer style="position:relative;overflow:hidden;">
-        <img src="elements/image copy 8.png" alt=""
-          style="position:absolute;top:50%;left:16px;transform:translateY(-50%);width:70px;opacity:0.2;pointer-events:none;" />
-        <img src="elements/image copy 8.png" alt=""
-          style="position:absolute;top:50%;right:16px;transform:translateY(-50%) scaleX(-1);width:70px;opacity:0.2;pointer-events:none;" />
-      </footer>
+    <!-- FOOTER -->
+    <footer style="position:relative;overflow:hidden;">
+      <img src="elements/image copy 8.png" alt=""
+        style="position:absolute;top:50%;left:16px;transform:translateY(-50%);width:70px;opacity:0.2;pointer-events:none;" />
+      <img src="elements/image copy 8.png" alt=""
+        style="position:absolute;top:50%;right:16px;transform:translateY(-50%) scaleX(-1);width:70px;opacity:0.2;pointer-events:none;" />
+    </footer>
 
   </div><!-- end #content -->
 
