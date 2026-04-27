@@ -252,7 +252,7 @@
         style="background-image: url('elements/background_ceremony_info.svg'); background-size: cover; background-position: center; border: none;">
         <div style="max-width: 500px; margin: 0 auto; position:relative; z-index:2;">
           <div class="section-title fade-in" style="color: var(--burgundy); text-shadow: none;">Thánh Lễ Hôn Phối</div>
-          <div class="cloud-divider fade-in">☁</div>
+
 
           <div style="margin: 20px 0; text-align: center;">
             <img src="elements/image copy 5.png" alt="Rings"
@@ -337,7 +337,7 @@
       <div class="info-card-wrap fade-in">
         <div style="max-width: 500px; margin: 0 auto; position:relative; z-index:2;">
           <div class="section-title fade-in" style="color: var(--burgundy); text-shadow: none;">Lễ Vu Quy</div>
-          <div class="cloud-divider fade-in">☁</div>
+
 
           <div style="margin: 20px 0; text-align: center;">
             <img src="elements/ring.svg" alt="Rings"
@@ -420,7 +420,7 @@
         style="position:absolute;top:-30px;left:-30px;width:200px;opacity:0.15;pointer-events:none;animation:floatY 7s ease-in-out 1s infinite;transform:rotate(180deg) scaleX(-1);" />
       <div style="text-align:center;position:relative;z-index:1;padding:0 20px;">
         <div class="section-title fade-in">Album Ảnh Cưới</div>
-        <div class="cloud-divider fade-in">☁</div>
+
       </div>
       <div class="album-carousel-wrap" id="albumCarousel">
         <div class="album-track" id="albumTrack"></div>
@@ -587,21 +587,8 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(reg => {
-            console.log('Service Worker registered');
-            // Check for updates on every load
-            reg.update();
-          })
+          .then(reg => console.log('Service Worker registered', reg))
           .catch(err => console.log('Service Worker registration failed', err));
-      });
-
-      // Reload page when new service worker takes over
-      let refreshing = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
-          window.location.reload();
-          refreshing = true;
-        }
       });
     }
   </script>

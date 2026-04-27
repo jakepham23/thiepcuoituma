@@ -39,32 +39,24 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch Assets (Stale-While-Revalidate)
+// Fetch Assets
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(event.request).then(cacheRes => {
-        const fetchPromise = fetch(event.request).then(fetchRes => {
-          // If response is valid, update cache
-          if (fetchRes && fetchRes.status === 200) {
-            cache.put(event.request, fetchRes.clone());
+    caches.match(event.request).then(cacheRes => {
+      return cacheRes || fetch(event.request).then(fetchRes => {
+        return caches.open(CACHE_NAME).then(cache => {
+          // Optional: still cache new things like photos, but return network response
+          if (event.request.url.includes('/album/')) {
+             cache.put(event.request.url, fetchRes.clone());
           }
           return fetchRes;
-        }).catch(() => {
-          // Fallback for offline if not in cache
-          if (event.request.url.indexOf('.html') > -1) {
-            return caches.match('/index.html');
-          }
         });
-        
-        // Return cached response if available, otherwise wait for network
-        return cacheRes || fetchPromise;
       });
+    }).catch(() => {
+      // If offline and not in cache
+      if (event.request.url.indexOf('.html') > -1) {
+        return caches.match('/index.html');
+      }
     })
   );
-});
-
-// Skip waiting to activate new SW immediately
-self.addEventListener('install', () => {
-  self.skipWaiting();
 });
