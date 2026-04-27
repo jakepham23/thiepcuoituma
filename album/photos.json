@@ -1,0 +1,37 @@
+{
+  "photos": [
+    {
+      "file": "1.jpeg"
+    },
+    {
+      "file": "2.jpeg"
+    },
+    {
+      "file": "3.jpeg"
+    },
+    {
+      "file": "4.jpeg"
+    },
+    {
+      "file": "5.jpeg"
+    },
+    {
+      "file": "6.jpeg"
+    },
+    {
+      "file": "7.jpeg"
+    },
+    {
+      "file": "8.jpeg"
+    },
+    {
+      "file": "9.jpeg"
+    }
+  ],
+  "settings": {
+    "scrollSpeed": 40,
+    "autoPlay": true,
+    "cardWidth": 260,
+    "cardHeight": 340
+  }
+}
