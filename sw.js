@@ -12,7 +12,7 @@ const ASSETS = [
   '/elements/flower6.svg',
   '/elements/flower8.svg',
   '/elements/background_ceremony_info.svg',
-  '/elements/image copy 5.png',
+  '/elements/church.png',
   '/elements/image copy 8.png',
   '/music/phep_mau.mp3'
 ];
