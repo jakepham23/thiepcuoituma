@@ -224,6 +224,21 @@
           body: JSON.stringify(wish)
         });
 
+        // Gửi thông báo đến Zalo Bot thông qua Vercel API
+        try {
+          await fetch('/api/send-zalo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: wish.name,
+              msg: wish.msg,
+              time: wish.time
+            })
+          });
+        } catch (botErr) {
+          console.error('Lỗi khi gọi API Zalo Bot:', botErr);
+        }
+
         // Render ngay lập tức lên giao diện
         addWishToUI(wish.name, wish.time, wish.msg);
         document.getElementById('wish-name').value = '';

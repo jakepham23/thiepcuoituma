@@ -1,2 +1,5 @@
 temp/
 image_temp/
+node_modules/
+.vercel
+.env

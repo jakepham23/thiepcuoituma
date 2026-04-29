@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-zalo-bot": "^0.1.6"
+  }
+}
