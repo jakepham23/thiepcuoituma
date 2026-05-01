@@ -1111,13 +1111,36 @@
    margin: 10px 0;
  }
 
- .hero-date-row {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 16px;
-   margin-top: 20px;
- }
+  .hero-date-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 480px) {
+    .hero-date-row {
+      gap: 6px;
+      margin-top: 15px;
+    }
+    .hero-date-box .label {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+    }
+    .hero-date-box .value {
+      font-size: 1.2rem;
+    }
+    .hero-date-box .value.big {
+      font-size: 2.2rem;
+    }
+    .hero-divider-v {
+      height: 30px;
+    }
+    .cap-vn {
+      font-size: 1.1em !important;
+    }
+  }
 
  .hero-date-box {
    text-align: center;
