@@ -1121,24 +1121,24 @@
 
   @media (max-width: 480px) {
     .hero-date-row {
-      gap: 6px;
+      gap: 4px;
       margin-top: 15px;
     }
     .hero-date-box .label {
-      font-size: 0.65rem;
-      letter-spacing: 1px;
+      font-size: 0.58rem;
+      letter-spacing: 0.5px;
     }
     .hero-date-box .value {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .hero-date-box .value.big {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
     .hero-divider-v {
-      height: 30px;
+      height: 25px;
     }
     .cap-vn {
-      font-size: 1.1em !important;
+      font-size: 1.05em !important;
     }
   }
 
@@ -2844,6 +2844,8 @@
  }
 
  .modern-title-top {
+    position: relative;
+    z-index: 5;
    font-size: 0.8rem;
    letter-spacing: 6px;
    margin-bottom: 20px;
@@ -2923,9 +2925,9 @@
  }
 
  .modern-subtext {
-   font-size: 1.1rem;
+   font-size: 1rem;
    opacity: 0.9;
-   max-width: 300px;
+   max-width: 340px;
    line-height: 1.6;
    color: var(--burgundy);
    font-style: italic;
